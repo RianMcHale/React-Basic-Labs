@@ -40,6 +40,12 @@ div {
   font-size: 1.2em; 
 }
 
+.priority {
+  font-style: italic;
+  color:blueviolet;
+  font-weight: bolder;
+}
+
 .description {
   font-style: italic;
   color: pink;
