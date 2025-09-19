@@ -20,6 +20,15 @@ function App() {
     deadline: "",
     priority: ""
   });
+
+  const getPriorityColor = (p = "") => {
+    switch (p.toLowerCase()) {
+      case "high":   return "#e00000"; 
+      case "medium": return "#d19b16";   
+      default:       return "#0b8f13";  
+    }
+  };
+
   const formChangeHandler = (event) => {
     let form = {...formState};
 
@@ -66,6 +75,10 @@ function App() {
     tasks.splice(taskIndex, 1);
     setTaskState({tasks});
   }
+
+
+
+
   return (
     <div className="container">
       <h1>Tasky</h1>
@@ -76,6 +89,7 @@ function App() {
       deadline={task.deadline}
       key={task.id}
       priority={task.priority} 
+      priorityColor={getPriorityColor(task.priority)}
       done={task.done}
       markDone={() => doneHandler(index)} 
       deleteTask = {() => deleteHandler(index)} />
